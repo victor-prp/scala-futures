@@ -2,15 +2,13 @@ package org.victorp.futures;
 
 import javafx.util.Pair;
 
-import java.util.List;
 import java.util.concurrent.*;
-
 import static java.lang.System.out;
 
 /**
  * @author victorp
  */
-public class CollectAsyncResultsWithJava8 {
+public class CollectAsyncResultsWithJava8V1 {
 
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
