@@ -1,6 +1,7 @@
 package org.victorp.futures
 
 
+import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContext, Await, Future}
 import org.victorp.futures.WorkUtil._
 
@@ -8,12 +9,16 @@ import org.victorp.futures.WorkUtil._
 /**
  * @author victorp
  */
-object CollectAsyncResults extends App {
+object CollectAsyncResultsWithScala extends App {
   implicit val ec = ExecutionContext.global
 
-  doIt()
+  val f = doItInTheFuture()
+  println(s"future tasks are started, we can now wait for its results")
+  val result:(String,Int) = Await.result(f,100 millis)
+  println(s"future tasks are finished, results: $result")
 
-  def doIt() :Future[(String,Int)]= {
+
+  def doItInTheFuture() :Future[(String,Int)]= {
 
 
     val work1F = Future {
@@ -31,7 +36,7 @@ object CollectAsyncResults extends App {
         work2 <- work2F
       } yield (work1, work2)
 
-    println(s"twoWorksFuture is defined")
+
     twoWorksF
   }
 
