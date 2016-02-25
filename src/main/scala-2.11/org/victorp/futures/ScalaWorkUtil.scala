@@ -22,4 +22,8 @@ object ScalaWorkUtil {
       case false => throw exception
     }
   }
+
+  def  sequence[R](futures:Seq[Future[R]]):Future[Seq[R]] = {
+    Future.sequence(futures)
+  }
 }

@@ -9,7 +9,7 @@ import org.victorp.futures.ScalaWorkUtil._
 /**
  * @author victorp
  */
-object CollectAsyncResultsWithScala extends App {
+object CollectAsyncResultsWithScalaV1 extends App {
 
 
   val f = doItInTheFuture()
